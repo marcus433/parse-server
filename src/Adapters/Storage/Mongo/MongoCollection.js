@@ -88,6 +88,7 @@ export default class MongoCollection {
   }
 
   deleteMany(query) {
+    console.log(query)
     return this._mongoCollection.deleteMany(query);
   }
 
