@@ -417,9 +417,8 @@ export class MongoStorageAdapter implements StorageAdapter {
         const mongoWhere = transformWhere(className, query, schema);
         return collection.deleteMany(mongoWhere)
       })
-      .catch(err => this.handleError(err))
+      .catch(err => console.log(JSON.stringify(err)))//.catch(err => this.handleError(err))
       .then(({ result }) => {
-        console.log(JSON.stringify(result))
         if (result.n === 0) {
           throw new Parse.Error(Parse.Error.OBJECT_NOT_FOUND, 'Object not found.');
         }
