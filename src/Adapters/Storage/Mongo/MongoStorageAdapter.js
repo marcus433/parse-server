@@ -415,7 +415,6 @@ export class MongoStorageAdapter implements StorageAdapter {
     return this._adaptiveCollection(className)
       .then(collection => {
         const mongoWhere = transformWhere(className, query, schema);
-        console.log(JSON.stringify(mongoWhere))
         return collection.deleteMany(mongoWhere)
       })
       .catch(err => this.handleError(err))
