@@ -419,6 +419,7 @@ export class MongoStorageAdapter implements StorageAdapter {
       })
       .catch(err => this.handleError(err))
       .then(({ result }) => {
+        console.log(JSON.stringify(result))
         if (result.n === 0) {
           throw new Parse.Error(Parse.Error.OBJECT_NOT_FOUND, 'Object not found.');
         }
